@@ -1,7 +1,11 @@
 import React from "react";
 
 const Spinner = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>loading...</h1>
+    </div>
+  );
 };
 
 export default Spinner;

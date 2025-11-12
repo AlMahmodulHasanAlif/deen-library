@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const MyBooks = () => {
-    return (
-        <div>
-            <h1>my books</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>my books</h1>
+    </div>
+  );
 };
 
 export default MyBooks;
