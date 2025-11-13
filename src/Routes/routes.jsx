@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import AllBooks from "../pages/AllBooks";
 import AddBook from "../pages/AddBook";
 import MyBooks from "../pages/MyBooks";
+import Latest from "../pages/Latest";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,18 @@ const router = createBrowserRouter([
     hydrateFallbackElement: <Spinner />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <Home />,
+        children: [
+          {
+            index: true,
+            element: <Latest />,
+          },
+          {
+            path: "/home-about",
+            element: <About />,
+          },
+        ],
       },
       {
         path: "/about",
