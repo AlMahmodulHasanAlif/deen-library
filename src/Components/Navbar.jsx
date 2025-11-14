@@ -1,11 +1,19 @@
-import React from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout()
+      .then(() => toast("Sign out successful"))
+      .catch((error) => toast.error(error.message));
+  };
+
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm bg-teal-500">
+      <div className="navbar bg-base-100 shadow-sm bg-teal-500 px-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,7 +56,7 @@ const Navbar = () => {
             src={logo}
             alt=""
           />
-          <NavLink className="font-bold text-3xl text-white" to="/">
+          <NavLink className="ml-2 font-bold text-3xl text-white" to="/">
             Deen Library
           </NavLink>
         </div>
@@ -69,18 +77,46 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link
-            to="/register"
-            className="mr-4 text-teal-800 px-6 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
-          >
-            Register
-          </Link>
-          <Link
-            to="/login"
-            className="text-teal-800 px-6 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
-          >
-            Login
-          </Link>
+          {/* Login/Register Buttons */}
+          {!user && (
+            <>
+              <Link
+                to="/register"
+                className="mr-4 text-teal-800 px-6 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
+              >
+                Register
+              </Link>
+
+              <Link
+                to="/login"
+                className="text-teal-800 px-7 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
+              >
+                Login
+              </Link>
+            </>
+          )}
+          {/* Profile/Logout for logged-in users */}
+          {user && (
+            <>
+              <Link to="/">
+                <img
+                  className="mr-3 rounded-full h-10"
+                  src={user.photoURL}
+                  referrerPolicy="no-referrer"
+                  alt="User"
+                />
+              </Link>
+              <li>
+                <Link
+                  to="/"
+                  onClick={handleLogout}
+                  className="text-white px-4 py-2 font-semibold rounded-md bg-gradient-to-r from-[#632EE3] to-[#9F62F2] mt-2 w-full text-center"
+                >
+                  Logout
+                </Link>
+              </li>
+            </>
+          )}
         </div>
       </div>
     </div>

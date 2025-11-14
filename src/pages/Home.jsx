@@ -8,7 +8,7 @@ const Home = () => {
       <Banner></Banner>
       <div>
         <Link to="/">latest</Link>
-        <Link to='/home-about'>About</Link>
+        <Link to="/home-about">About</Link>
       </div>
       <Outlet></Outlet>
     </div>
