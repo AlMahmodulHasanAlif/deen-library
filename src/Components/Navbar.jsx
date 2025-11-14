@@ -104,8 +104,10 @@ const Navbar = () => {
                   src={user.photoURL}
                   referrerPolicy="no-referrer"
                   alt="User"
+                  title={user?.displayName}
                 />
               </Link>
+
               <li>
                 <Link
                   to="/"
