@@ -16,6 +16,7 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         toast.success("Google login successful!");
+        navigate(location.state?.from || "/", { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
@@ -24,32 +25,27 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const form = e.target;
     const email = e.target.email.value;
     const password = e.target.password.value;
+
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        if (!result.user.emailVerified) {
-          toast("Please verify your email before logging in.");
+
+        if (!user.emailVerified) {
+          toast.error("Please verify your email before logging in.");
           setUser(null);
         } else {
-          toast.success("verification successful");
+          toast.success("Login successful!");
           setUser(user);
           navigate(location.state?.from || "/", { replace: true });
         }
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setError(errorCode);
+        setError(error.code);
       });
-    import("firebase/auth").then(({ getAuth, signOut }) => {
-      const auth = getAuth();
-      signOut(auth);
-    });
-    navigate(location.state?.from || "/", { replace: true });
   };
+
   return (
     <div className="flex items-center justify-center md:min-h-150 bg-black">
       <title>Login</title>

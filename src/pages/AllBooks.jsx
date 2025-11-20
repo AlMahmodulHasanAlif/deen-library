@@ -24,7 +24,7 @@ const AllBooks = () => {
               to={`/book-details/${book._id}`}
               className="text-teal-800 px-7 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
             >
-              Show More
+              Show Details
             </Link>
           </div>
         </div>

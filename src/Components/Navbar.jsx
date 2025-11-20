@@ -112,7 +112,7 @@ const Navbar = () => {
                 <Link
                   to="/"
                   onClick={handleLogout}
-                  className="text-white px-4 py-2 font-semibold rounded-md bg-gradient-to-r from-[#632EE3] to-[#9F62F2] mt-2 w-full text-center"
+                  className=" px-4 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0] text-teal-800bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0] text-teal-800 mt-2 w-full text-center"
                 >
                   Logout
                 </Link>
