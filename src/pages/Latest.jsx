@@ -33,11 +33,20 @@ const Latest = () => {
               <p className="text-sm text-gray-700">Author: {book.author}</p>
               <p className="mt-2">{book.summary.slice(0, 100)}...</p>
               <div className=" mt-2">Rating: {book.rating}</div>
+            <Link
+              to={`/book-details/${book._id}`}
+              className="text-teal-800 px-7 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
+            >
+              Show Details
+            </Link>
             </div>
           </div>
         ))}
       </div>
-      <Link className="text-center text-xl btn mt-5 px-10 text-teal-500" to="/all-books">
+      <Link
+        className="text-center text-xl btn mt-5 px-10 text-teal-500"
+        to="/all-books"
+      >
         Show More
       </Link>
     </div>

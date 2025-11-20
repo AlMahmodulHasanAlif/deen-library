@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);

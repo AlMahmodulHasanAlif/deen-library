@@ -5,18 +5,23 @@ const Details = () => {
   const book = useLoaderData();
   console.log(book);
   return (
-    <div key={book._id} className="card bg-base-100 w-96 shadow-sm">
-      <figure>
-        <img src="book.coverImage" alt="book image" />
-      </figure>
-      <div className="card-body">
-        <h2 className="font-semibold text-xl">{book.title}</h2>
-        <h2 className="font-semibold mt-[-5px]">Author: {book.author}</h2>
-        <h2 className="font-semibold m-[-8px] p-0">Genre: {book.genre}</h2>
+    <div className="max-w-4xl mx-auto p-6">
+      <div className="card bg-base-100 shadow-md rounded-lg p-6">
+        <figure className="mb-4">
+          <img
+            src={book.coverImage}
+            alt={book.title}
+            className="w-full max-w-sm mx-auto"
+          />
+        </figure>
 
-        <p className="m-2">{book.summary}</p>
-        <div className="card-actions justify-center">
-          <div className="badge badge-outline">Rating: {book.rating}</div>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold">{book.title}</h2>
+          <p className="font-medium">Author: {book.author}</p>
+          <p className="font-medium">Genre: {book.genre}</p>
+          <p>{book.summary}</p>
+          <p className="font-medium">Uploaded by: {book.userEmail}</p>
+          <div className="badge badge-outline mt-2">Rating: {book.rating}</div>
         </div>
       </div>
     </div>
