@@ -3,9 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import book1 from "../assets/book1.jpeg";
+import book1 from "../assets/book1.jpg";
 import book2 from "../assets/book2.jpg";
-import book3 from "../assets/book3.jpg";
+import book3 from "../assets/book3.jpeg";
 import { Link } from "react-router";
 
 const Banner = () => {
