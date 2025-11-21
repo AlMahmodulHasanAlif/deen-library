@@ -5,32 +5,46 @@ const AllBooks = () => {
   const books = useLoaderData();
   console.log(books);
   return (
-    <div className="grid grid-cols-3 mx-10 w-full gap-7 m-5 mx-auto">
-      {books.map((book) => (
-        <div key={book._id} className="card bg-base-100 shadow-sm bg-teal-100">
-          <figure>
-            <img
-              className="h-100 w-full"
-              src={book.coverImage}
-              alt="book image"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="font-semibold text-xl">{book.title}</h2>
-            <h2 className="font-semibold mt-[-5px]">Author: {book.author}</h2>
-            <p className="m-2">{book.summary}</p>
-            <div className="card-actions justify-center">
-              <div className="badge badge-outline">Rating: {book.rating}</div>
-            </div>
-            <Link
-              to={`/book-details/${book._id}`}
-              className="text-teal-800 px-7 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
-            >
-              Show Details
-            </Link>
-          </div>
-        </div>
-      ))}
+    <div className="overflow-x-auto w-full px-10 py-5">
+      <table className="table table-zebra w-full">
+        <thead>
+          <tr>
+            <th>Cover</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {books.map((book) => (
+            <tr key={book._id}>
+              <td>
+                <img
+                  className="h-20 w-16 object-cover rounded"
+                  src={book.coverImage}
+                  alt="book"
+                />
+              </td>
+              <td className="font-semibold">{book.title}</td>
+              <td>{book.author}</td>
+              <td>{book.genre}</td>
+              <td>
+                <div className="badge badge-outline">{book.rating}</div>
+              </td>
+              <td>
+                <Link
+                  to={`/book-details/${book._id}`}
+                  className="btn btn-sm btn-outline btn-primary"
+                >
+                  View Details
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
