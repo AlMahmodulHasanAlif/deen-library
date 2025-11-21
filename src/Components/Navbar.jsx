@@ -25,33 +25,62 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </div>
+
             <ul
-              tabIndex="-1"
-              className="menu text-white menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              tabIndex={0}
+              className="menu text-teal-500 menu-sm dropdown-content bg-base-100 rounded-box z-20 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "border-b-2 border-teal-500" : ""
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/all-books">All Books</NavLink>
+                <NavLink
+                  to="/all-books"
+                  className={({ isActive }) =>
+                    isActive ? "border-b-2 border-teal-500" : ""
+                  }
+                >
+                  All Books
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/add-book">Add Book</NavLink>
+                <NavLink
+                  to="/add-book"
+                  className={({ isActive }) =>
+                    isActive ? "border-b-2 border-teal-500" : ""
+                  }
+                >
+                  Add Book
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/myBooks">My Books</NavLink>
+                <NavLink
+                  to="/myBooks"
+                  className={({ isActive }) =>
+                    isActive ? "border-b-2 border-teal-500" : ""
+                  }
+                >
+                  My Books
+                </NavLink>
               </li>
             </ul>
           </div>
+
           <img
             className="h-15 w-15 border border-white rounded-4xl"
             src={logo}
@@ -61,24 +90,53 @@ const Navbar = () => {
             Deen Library
           </NavLink>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-white">
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-white pb-1" : ""
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/all-books">All Books</NavLink>
+              <NavLink
+                to="/all-books"
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-white pb-1" : ""
+                }
+              >
+                All Books
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/add-book">Add Book</NavLink>
+              <NavLink
+                to="/add-book"
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-white pb-1" : ""
+                }
+              >
+                Add Book
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/myBooks">My Books</NavLink>
+              <NavLink
+                to="/myBooks"
+                className={({ isActive }) =>
+                  isActive ? "border-b-2 border-white pb-1" : ""
+                }
+              >
+                My Books
+              </NavLink>
             </li>
           </ul>
         </div>
+
         <div className="navbar-end">
-          {/* Login/Register Buttons */}
           {!user && (
             <>
               <Link
@@ -96,28 +154,25 @@ const Navbar = () => {
               </Link>
             </>
           )}
-          {/* Profile/Logout for logged-in users */}
+
           {user && (
             <>
-              <Link to="/">
+              <div className="flex items-center gap-2">
                 <img
-                  className="mr-3 rounded-full h-10"
+                  className="rounded-full h-10"
                   src={user.photoURL}
                   referrerPolicy="no-referrer"
                   alt="User"
                   title={user?.displayName}
                 />
-              </Link>
 
-              <li>
-                <Link
-                  to="/"
+                <button
                   onClick={handleLogout}
-                  className=" px-4 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0] text-teal-800bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0] text-teal-800 mt-2 w-full text-center"
+                  className="px-4 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0] text-teal-800"
                 >
                   Logout
-                </Link>
-              </li>
+                </button>
+              </div>
             </>
           )}
         </div>

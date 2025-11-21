@@ -12,7 +12,7 @@ const AllBooks = () => {
       .then((res) => res.json())
       .then((data) => setBooks(data))
       .catch((err) => console.error(err));
-  }, [sortOrder]); // refetch when sortOrder changes
+  }, [sortOrder]);
 
   return (
     <div className="overflow-x-auto w-full px-10 py-5">

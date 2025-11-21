@@ -11,12 +11,14 @@ import MyBooks from "../pages/MyBooks";
 import Latest from "../pages/Latest";
 import PrivateRoute from "../provider/PrivateRoute";
 import Details from "../pages/Details";
+import Error from "../pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     hydrateFallbackElement: <Spinner />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
