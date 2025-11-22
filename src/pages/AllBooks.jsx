@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
+import Spinner from "../Components/Spinner";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [sortOrder, setSortOrder] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       `http://localhost:3000/all-books${sortOrder ? `?sort=${sortOrder}` : ""}`
     )
       .then((res) => res.json())
       .then((data) => setBooks(data))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, [sortOrder]);
-
+  if (loading) return <Spinner />;
   return (
     <div className="overflow-x-auto w-full px-10 py-5">
       <div className="mb-4">
