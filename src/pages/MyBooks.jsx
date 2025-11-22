@@ -46,11 +46,15 @@ const MyBooks = () => {
   if (loading) return <p>Loading...</p>;
 
   if (!user?.email || books.length === 0) {
-    return <p className="text-center text-gray-500 mt-5 h-screen flex items-center justify-center">No data available</p>;
+    return (
+      <p className="text-center text-gray-500 mt-5 h-screen flex items-center justify-center">
+        No data available
+      </p>
+    );
   }
 
   return (
-    <div className="overflow-x-auto p-5">
+    <div className="overflow-x-auto p-5 h-screen">
       <Toaster position="top-right" reverseOrder={false} />
       <table className="table table-zebra w-full">
         <thead>
@@ -74,7 +78,7 @@ const MyBooks = () => {
                 <Link
                   to={`/book-details/${book._id}`}
                   id={`view-${book._id}`}
-                  className="btn btn-sm btn-primary"
+                  className="btn btn-sm "
                 >
                   View
                 </Link>
@@ -82,6 +86,19 @@ const MyBooks = () => {
                   anchorId={`view-${book._id}`}
                   place="top"
                   content="View book details"
+                />
+                {/* Update button */}
+                <Link
+                  to={`/update-book/${book._id}`}
+                  id={`update-${book._id}`}
+                  className="btn btn-sm"
+                >
+                  Update
+                </Link>
+                <Tooltip
+                  anchorId={`update-${book._id}`}
+                  place="top"
+                  content="Update book details"
                 />
 
                 {/* Delete button */}

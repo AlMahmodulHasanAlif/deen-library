@@ -12,6 +12,7 @@ import Latest from "../pages/Latest";
 import PrivateRoute from "../provider/PrivateRoute";
 import Details from "../pages/Details";
 import Error from "../pages/Error";
+import UpdateBooks from "../pages/UpdateBooks";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddBook />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update-book/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateBooks />
           </PrivateRoute>
         ),
       },
