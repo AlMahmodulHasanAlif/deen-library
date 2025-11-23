@@ -1,16 +1,50 @@
-# React + Vite
+# deenLibrary - Client Side
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack digital library app built with **React.js**, **Firebase Auth**, and **Axios**. Users can explore, add, update, and delete books.
 
-Currently, two official plugins are available:
+**Live Site:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Browse all books and view details
+- Register/Login with Email or Google
+- Add, update, delete your books (private routes)
+- My Books dashboard for user’s books
+- Latest books, top genres, and featured books on Home
+- Dark/Light mode toggle
+- Real-time comments and reviews
+- Responsive design with modern UI
+- Success/error notifications using React Hot Toast
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Routes
+
+- `/` → Home
+- `/all-books` → All Books
+- `/add-book` → Add Book (private)
+- `/update-book/:id` → Update Book (private)
+- `/myBooks` → User’s Books (private)
+- `/book-details/:id` → Book Details (private)
+- `/login` → Login
+- `/register` → Register
+- `*` → 404 page
+
+---
+
+## Tech Stack
+
+React.js, React Router, Axios, Firebase Auth, Tailwind CSS, React Hot Toast, date-fns, React Tooltip, imgbb API
+
+---
+
+## Setup
+
+```bash
+git clone https://github.com/YOUR_GITHUB_USERNAME/client-repo.git
+cd client
+npm install
+npm start
+```

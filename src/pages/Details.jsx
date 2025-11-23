@@ -13,7 +13,7 @@ const Details = () => {
 
   const fetchComments = () => {
     axios
-      .get(`http://localhost:3000/comments/${id}`)
+      .get(`https://deen-library-server.vercel.app/comments/${id}`)
       .then((res) => setComments(res.data))
       .catch((err) => console.error(err));
   };
@@ -38,7 +38,10 @@ const Details = () => {
       createdAt: new Date(),
     };
 
-    await axios.post("http://localhost:3000/add-comment", newComment);
+    await axios.post(
+      "https://deen-library-server.vercel.app/add-comment",
+      newComment
+    );
 
     setCommentText("");
     fetchComments();

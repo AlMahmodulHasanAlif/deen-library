@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/all-books",
         element: <AllBooks />,
-        loader: () => fetch("http://localhost:3000/all-books"),
+        loader: () => fetch("https://deen-library-server.vercel.app/all-books"),
       },
       {
         path: "/book-details/:id",
@@ -42,7 +42,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/book-details/${params.id}`),
+          fetch(
+            `https://deen-library-server.vercel.app/book-details/${params.id}`
+          ),
       },
       {
         path: "/add-book",

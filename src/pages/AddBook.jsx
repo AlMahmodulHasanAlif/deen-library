@@ -24,7 +24,10 @@ const AddBook = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/add-book", formData);
+      const res = await axios.post(
+        "https://deen-library-server.vercel.app/add-book",
+        formData
+      );
       toast.success("Book added successfully!");
       setFormData({
         title: "",

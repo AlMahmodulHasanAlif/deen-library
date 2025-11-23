@@ -7,7 +7,7 @@ const Latest = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/latest-books")
+      .get("https://deen-library-server.vercel.app/latest-books")
       .then((res) => setBooks(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -33,12 +33,12 @@ const Latest = () => {
               <p className="text-sm text-gray-700">Author: {book.author}</p>
               <p className="mt-2">{book.summary.slice(0, 100)}...</p>
               <div className=" mt-2">Rating: {book.rating}</div>
-            <Link
-              to={`/book-details/${book._id}`}
-              className="text-teal-800 px-7 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
-            >
-              Show Details
-            </Link>
+              <Link
+                to={`/book-details/${book._id}`}
+                className="text-teal-800 px-7 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
+              >
+                Show Details
+              </Link>
             </div>
           </div>
         ))}

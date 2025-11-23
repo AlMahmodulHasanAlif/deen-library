@@ -13,7 +13,9 @@ const MyBooks = () => {
 
   const fetchBooks = () => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myBooks?email=${user.email}`)
+      fetch(
+        `https://deen-library-server.vercel.app/myBooks?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => setBooks(data))
         .catch((err) => console.error(err))
@@ -34,7 +36,9 @@ const MyBooks = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:3000/delete-book/${id}`);
+      await axios.delete(
+        `https://deen-library-server.vercel.app/delete-book/${id}`
+      );
       toast.success("Book deleted successfully!");
       fetchBooks();
     } catch (err) {

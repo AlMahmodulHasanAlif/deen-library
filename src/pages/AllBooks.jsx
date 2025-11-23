@@ -10,7 +10,9 @@ const AllBooks = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:3000/all-books${sortOrder ? `?sort=${sortOrder}` : ""}`
+      `https://deen-library-server.vercel.app/all-books${
+        sortOrder ? `?sort=${sortOrder}` : ""
+      }`
     )
       .then((res) => res.json())
       .then((data) => setBooks(data))

@@ -26,7 +26,7 @@ const UpdateBooks = () => {
     if (!id) return;
     setLoading(true);
     axios
-      .get(`http://localhost:3000/book-details/${id}`)
+      .get(`https://deen-library-server.vercel.app/book-details/${id}`)
       .then((res) => {
         const book = res.data || {};
         setFormData({
@@ -71,7 +71,10 @@ const UpdateBooks = () => {
             : Number(formData.rating),
       };
 
-      await axios.patch(`http://localhost:3000/update-book/${id}`, payload);
+      await axios.patch(
+        `https://deen-library-server.vercel.app/update-book/${id}`,
+        payload
+      );
 
       toast.success("Book updated successfully!");
       navigate("/myBooks");
