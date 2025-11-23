@@ -143,7 +143,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end">
+        <div className="flex flex-col ml-20 md:ml-0 md:flex-row justify-center items-center ">
           <button
             onClick={toggleTheme}
             className={`mr-2 relative w-14 h-7 rounded-full flex items-center transition-all duration-300 
@@ -158,7 +158,7 @@ const Navbar = () => {
             <>
               <Link
                 to="/register"
-                className="mr-4 text-teal-800 px-6 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
+                className="my-1 md:mr-4 text-teal-800 px-6 py-2 font-semibold rounded-md bg-gradient-to-r from-[#FFFFFF] to-[#E0E0E0]"
               >
                 Register
               </Link>
