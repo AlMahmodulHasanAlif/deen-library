@@ -2,7 +2,7 @@
 
 A full-stack digital library app built with **React.js**, **Firebase Auth**, and **Axios**. Users can explore, add, update, and delete books.
 
-**Live Site:**
+**Live Site:** https://animated-capybara-dc317f.netlify.app/
 
 ---
 
