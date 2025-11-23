@@ -3,3 +3,11 @@
   margin: 0 auto;
   text-align: center;
 }
+
+html.dark {
+  background-color: #0f172a; 
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}

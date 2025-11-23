@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router";
 import logo from "../assets/logo.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -10,6 +10,13 @@ const Navbar = () => {
     logout()
       .then(() => toast("Sign out successful"))
       .catch((error) => toast.error(error.message));
+  };
+
+  const [dark, setDark] = useState(false);
+
+  const toggleTheme = () => {
+    setDark(!dark);
+    document.documentElement.classList.toggle("dark");
   };
 
   return (
@@ -137,6 +144,16 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
+          <button
+            onClick={toggleTheme}
+            className={`mr-2 relative w-14 h-7 rounded-full flex items-center transition-all duration-300 
+            ${dark ? "bg-gray-700" : "bg-gray-300"}`}
+          >
+            <span
+              className={`absolute w-6 h-6 bg-white rounded-full shadow-md transform transition-all duration-300
+              ${dark ? "translate-x-7" : "translate-x-1"}`}
+            ></span>
+          </button>
           {!user && (
             <>
               <Link
